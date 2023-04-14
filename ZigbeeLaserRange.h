@@ -15,9 +15,9 @@ public:
     ~ZigbeeLaserRange();
 
 private slots:
-       void OpenPortButtonClicked();
-       void ClosePortButtonClicked();
-       void ScanPortButtonClicked();
+       void openPortButtonClicked();
+       void closePortButtonClicked();
+       void scanPortButtonClicked();
 private:
     Ui::ZigbeeLaserRangeClass ui;
     QSerialPort* serialPort;

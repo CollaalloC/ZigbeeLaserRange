@@ -7,22 +7,22 @@ ZigbeeLaserRange::ZigbeeLaserRange(QWidget *parent)
     ui.setupUi(this);
     QStringList serialNamePort;
     this->setWindowTitle("Laser Ranging Control");
-    serialPort = new QSerialPort(this); //创建一个串口对象，需要delete
+    serialPort = new QSerialPort(this); //new创建一个串口对象
 
     /*搜索可用串口*/
     for each (const  QSerialPortInfo &Portinfo  in QSerialPortInfo::availablePorts())
     {
-        ui.PortSelect->addItem( Portinfo.portName());
+        ui.portSelect->addItem( Portinfo.portName());
     }
     
 }
 
 ZigbeeLaserRange::~ZigbeeLaserRange()
 {
-    delete serialPort;
+    delete serialPort; //释放serialPort内存
 }
 
-void ZigbeeLaserRange::OpenPortButtonClicked()
+void ZigbeeLaserRange::openPortButtonClicked()
 {
     /*串口参数数组*/
     QSerialPort::BaudRate BaudRateArray[5] = { QSerialPort::Baud1200,QSerialPort::Baud2400,QSerialPort::Baud4800,QSerialPort::Baud9600,QSerialPort::Baud115200 };
@@ -40,29 +40,29 @@ void ZigbeeLaserRange::OpenPortButtonClicked()
     /*添加到combo box选项卡中*/
     for each (QSerialPort::BaudRate BaudRate in BaudRateArray)
     {
-        ui.BaudSelect->addItem(QString::number(BaudRate));
+        ui.baudSelect->addItem(QString::number(BaudRate));
     }
     for each (QSerialPort::DataBits DataBits in DataBitsArray)
     {
-        ui.DataBitSelect->addItem(QString::number(DataBits));
+        ui.dataBitSelect->addItem(QString::number(DataBits));
     }
     for each (QSerialPort::StopBits StopBits in StopBitsArray)
     {
-        ui.StopBitSelect->addItem(QString::number(StopBits));
+        ui.stopBitSelect->addItem(QString::number(StopBits));
     }
     for each (QSerialPort::Parity Parity in ParityArray)
     {
-        ui.ParitBitSelect->addItem(QString::number(Parity));
+        ui.paritBitSelect->addItem(QString::number(Parity));
     }
 
     /*设置串口参数变量*/
 
-    baudrate = BaudRateArray[ui.BaudSelect->currentIndex()];
-    databit = DataBitsArray[ui.DataBitSelect->currentIndex()];
-    stopbit = StopBitsArray[ui.StopBitSelect->currentIndex()];
+    baudrate = BaudRateArray[ui.baudSelect->currentIndex()];
+    databit = DataBitsArray[ui.dataBitSelect->currentIndex()];
+    stopbit = StopBitsArray[ui.stopBitSelect->currentIndex()];
    
     /*设置串口*/
-    serialPort->setPortName(ui.PortSelect->currentText());
+    serialPort->setPortName(ui.portSelect->currentText());
     serialPort->setBaudRate(baudrate);
     serialPort->setDataBits(databit);
     serialPort->setStopBits(stopbit);
@@ -79,7 +79,7 @@ void ZigbeeLaserRange::OpenPortButtonClicked()
 	}
 }
 
-void ZigbeeLaserRange::ClosePortButtonClicked()
+void ZigbeeLaserRange::closePortButtonClicked()
 {
     serialPort->close();
     /*关闭串口提示*/
@@ -93,7 +93,7 @@ void ZigbeeLaserRange::ClosePortButtonClicked()
 	}
 }
 
-void ZigbeeLaserRange::ScanPortButtonClicked()
+void ZigbeeLaserRange::scanPortButtonClicked()
 {
 	/*搜索可用串口*/
     if (QSerialPortInfo::availablePorts().size() == 0)
@@ -103,9 +103,10 @@ void ZigbeeLaserRange::ScanPortButtonClicked()
     else {
         for each (const  QSerialPortInfo & Portinfo  in QSerialPortInfo::availablePorts())
         {
-            ui.PortSelect->addItem(Portinfo.portName());
+            ui.portSelect->addItem(Portinfo.portName());
         }
     }
 
    
 }
+

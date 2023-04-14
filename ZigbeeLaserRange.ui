@@ -19,25 +19,12 @@
      <rect>
       <x>190</x>
       <y>30</y>
-      <width>311</width>
-      <height>141</height>
+      <width>221</width>
+      <height>181</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="SentButton">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>190</y>
-      <width>71</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>发送</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="PortSelect">
+   <widget class="QComboBox" name="portSelect">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -47,7 +34,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="BaudLabel">
+   <widget class="QLabel" name="baudLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -60,7 +47,7 @@
      <string>波特率选择</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="BaudSelect">
+   <widget class="QComboBox" name="baudSelect">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -88,17 +75,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>190</y>
-      <width>311</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="DataBitLabel">
+   <widget class="QLabel" name="dataBitLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -111,7 +88,7 @@
      <string>数据位</string>
     </property>
    </widget>
-   <widget class="QLabel" name="StopBitLabel">
+   <widget class="QLabel" name="stopBitLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -124,7 +101,7 @@
      <string>停止位</string>
     </property>
    </widget>
-   <widget class="QLabel" name="ParitBitLabel">
+   <widget class="QLabel" name="paritBitLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -137,7 +114,7 @@
      <string>校验位</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="DataBitSelect">
+   <widget class="QComboBox" name="dataBitSelect">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -152,7 +129,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="StopBitSelect">
+   <widget class="QComboBox" name="stopBitSelect">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -167,7 +144,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="ParitBitSelect">
+   <widget class="QComboBox" name="paritBitSelect">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -182,7 +159,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QPushButton" name="OpenPortButton">
+   <widget class="QPushButton" name="openPortButton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -195,7 +172,7 @@
      <string>打开串口</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="ClosePortButton">
+   <widget class="QPushButton" name="closePortButton">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -208,7 +185,7 @@
      <string>关闭串口</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="ScanPortButton">
+   <widget class="QPushButton" name="scanPortButton">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -219,6 +196,216 @@
     </property>
     <property name="text">
      <string>扫描串口</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>60</y>
+      <width>41</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>自动</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="oneTimeMeasurementLabel">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>60</y>
+      <width>53</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>单次测量</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>60</y>
+      <width>41</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>手动</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="sequentialMeasurementLabel">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>110</y>
+      <width>53</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>连续测量</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>100</y>
+      <width>41</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>自动</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>100</y>
+      <width>41</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>手动</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>130</y>
+      <width>91</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>快速自动</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="stopMeasurement">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>160</y>
+      <width>53</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>停止测量</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>160</y>
+      <width>91</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>停止测量</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="laserOnOffLabel">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>190</y>
+      <width>53</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;激光开关&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>190</y>
+      <width>41</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>开</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>190</y>
+      <width>41</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>关</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="configLabel">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>30</y>
+      <width>53</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;参数&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>30</y>
+      <width>41</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>查询</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_10">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>30</y>
+      <width>41</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>设置</string>
     </property>
    </widget>
   </widget>
@@ -248,10 +435,10 @@
  </resources>
  <connections>
   <connection>
-   <sender>OpenPortButton</sender>
+   <sender>openPortButton</sender>
    <signal>clicked()</signal>
    <receiver>ZigbeeLaserRangeClass</receiver>
-   <slot>OpenPortButtonClicked()</slot>
+   <slot>closePortButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>31</x>
@@ -264,10 +451,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>ClosePortButton</sender>
+   <sender>closePortButton</sender>
    <signal>clicked()</signal>
    <receiver>ZigbeeLaserRangeClass</receiver>
-   <slot>ClosePortButtonClicked()</slot>
+   <slot>scanPortButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>144</x>
@@ -280,10 +467,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>ScanPortButton</sender>
+   <sender>scanPortButton</sender>
    <signal>clicked()</signal>
    <receiver>ZigbeeLaserRangeClass</receiver>
-   <slot>ScanPortButtonClicked()</slot>
+   <slot>scanPortButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>41</x>
@@ -297,8 +484,8 @@
   </connection>
  </connections>
  <slots>
-  <slot>OpenPortButtonClicked()</slot>
-  <slot>ClosePortButtonClicked()</slot>
-  <slot>ScanPortButtonClicked()</slot>
+  <slot>openPortButtonClicked()</slot>
+  <slot>closePortButtonClicked()</slot>
+  <slot>scanPortButtonClicked()</slot>
  </slots>
 </ui>
