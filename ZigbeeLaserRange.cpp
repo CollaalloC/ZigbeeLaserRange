@@ -55,20 +55,6 @@ void ZigbeeLaserRange::OpenPortButtonClicked()
         ui.ParitBitSelect->addItem(QString::number(Parity));
     }
 
-    /*检测串口是否插入*/
-    if (QSerialPortInfo::availablePorts().size() == 0)
-    {
-        ui.textBrowser->append("No Port!");
-    }
-    else {
-        /*搜索可用串口*/
-        for each (const  QSerialPortInfo & Portinfo  in QSerialPortInfo::availablePorts())
-        {
-            ui.PortSelect->addItem(Portinfo.portName());
-        }
-    }
-
-
     /*设置串口参数变量*/
 
     baudrate = BaudRateArray[ui.BaudSelect->currentIndex()];
@@ -93,7 +79,7 @@ void ZigbeeLaserRange::OpenPortButtonClicked()
 	}
 }
 
-void ZigbeeLaserRange::StopPortButtonClicked()
+void ZigbeeLaserRange::ClosePortButtonClicked()
 {
     serialPort->close();
     /*关闭串口提示*/
@@ -107,11 +93,19 @@ void ZigbeeLaserRange::StopPortButtonClicked()
 	}
 }
 
-void void ZigbeeLaserRange::ScanPortButtonClicked()
+void ZigbeeLaserRange::ScanPortButtonClicked()
 {
 	/*搜索可用串口*/
-    for each (const  QSerialPortInfo & Portinfo  in QSerialPortInfo::availablePorts())
+    if (QSerialPortInfo::availablePorts().size() == 0)
     {
-		ui.PortSelect->addItem(Portinfo.portName());
-	}
+        ui.textBrowser->append("No Port Available!");
+    }
+    else {
+        for each (const  QSerialPortInfo & Portinfo  in QSerialPortInfo::availablePorts())
+        {
+            ui.PortSelect->addItem(Portinfo.portName());
+        }
+    }
+
+   
 }

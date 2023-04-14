@@ -16,7 +16,7 @@ public:
 
 private slots:
        void OpenPortButtonClicked();
-       void StopPortButtonClicked();
+       void ClosePortButtonClicked();
        void ScanPortButtonClicked();
 private:
     Ui::ZigbeeLaserRangeClass ui;
