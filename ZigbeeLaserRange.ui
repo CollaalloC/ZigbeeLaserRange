@@ -47,19 +47,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="PortLabel">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>51</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>串口选择</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="BaudLabel">
     <property name="geometry">
      <rect>
@@ -82,6 +69,14 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>4800</string>
+     </property>
+    </item>
     <item>
      <property name="text">
       <string>9600</string>
@@ -151,6 +146,11 @@
       <height>22</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>8</string>
+     </property>
+    </item>
    </widget>
    <widget class="QComboBox" name="StopBitSelect">
     <property name="geometry">
@@ -161,6 +161,11 @@
       <height>22</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </item>
    </widget>
    <widget class="QComboBox" name="ParitBitSelect">
     <property name="geometry">
@@ -171,6 +176,11 @@
       <height>22</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>无</string>
+     </property>
+    </item>
    </widget>
    <widget class="QPushButton" name="OpenPortButton">
     <property name="geometry">
@@ -198,6 +208,19 @@
      <string>关闭串口</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="ScanPortButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>61</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>扫描串口</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -205,7 +228,7 @@
      <x>0</x>
      <y>0</y>
      <width>597</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -223,5 +246,59 @@
  <resources>
   <include location="ZigbeeLaserRange.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>OpenPortButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>OpenPortButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>34</x>
+     <y>262</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ClosePortButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>ClosePortButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>144</x>
+     <y>233</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>185</x>
+     <y>259</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ScanPortButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>ScanPortButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>41</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>43</x>
+     <y>45</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OpenPortButtonClicked()</slot>
+  <slot>ClosePortButtonClicked()</slot>
+  <slot>ScanPortButtonClicked()</slot>
+ </slots>
 </ui>

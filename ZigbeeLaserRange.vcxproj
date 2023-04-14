@@ -98,6 +98,7 @@
     <QtMoc Include="ZigbeeLaserRange.h" />
     <ClCompile Include="ZigbeeLaserRange.cpp" />
     <ClCompile Include="main.cpp" />
+    <None Include="ClassDiagram.cd" />
     <None Include="ZigbeeLaserRange.ico" />
     <ResourceCompile Include="ZigbeeLaserRange.rc" />
     <ClInclude Include="stdafx.h" />

@@ -15,7 +15,6 @@ ZigbeeLaserRange::ZigbeeLaserRange(QWidget *parent)
         ui.PortSelect->addItem( Portinfo.portName());
     }
     
-    
 }
 
 ZigbeeLaserRange::~ZigbeeLaserRange()
@@ -23,8 +22,96 @@ ZigbeeLaserRange::~ZigbeeLaserRange()
     delete serialPort;
 }
 
-void ZigbeeLaserRange::on_OpenPortButton_clicked()
+void ZigbeeLaserRange::OpenPortButtonClicked()
 {
+    /*串口参数数组*/
+    QSerialPort::BaudRate BaudRateArray[5] = { QSerialPort::Baud1200,QSerialPort::Baud2400,QSerialPort::Baud4800,QSerialPort::Baud9600,QSerialPort::Baud115200 };
+    QSerialPort::DataBits DataBitsArray[3] = { QSerialPort::Data5,QSerialPort::Data6,QSerialPort::Data7 };
+    QSerialPort::StopBits StopBitsArray[2] = { QSerialPort::OneStop,QSerialPort::TwoStop };
+    QSerialPort::Parity ParityArray[3] = { QSerialPort::NoParity,QSerialPort::EvenParity,QSerialPort::OddParity };
+   
+    /*串口参数变量*/
+    QSerialPort::BaudRate baudrate;
+    QSerialPort::DataBits databit;
+    QSerialPort::StopBits stopbit;
+    QSerialPort::Parity parity;
 
+
+    /*添加到combo box选项卡中*/
+    for each (QSerialPort::BaudRate BaudRate in BaudRateArray)
+    {
+        ui.BaudSelect->addItem(QString::number(BaudRate));
+    }
+    for each (QSerialPort::DataBits DataBits in DataBitsArray)
+    {
+        ui.DataBitSelect->addItem(QString::number(DataBits));
+    }
+    for each (QSerialPort::StopBits StopBits in StopBitsArray)
+    {
+        ui.StopBitSelect->addItem(QString::number(StopBits));
+    }
+    for each (QSerialPort::Parity Parity in ParityArray)
+    {
+        ui.ParitBitSelect->addItem(QString::number(Parity));
+    }
+
+    /*检测串口是否插入*/
+    if (QSerialPortInfo::availablePorts().size() == 0)
+    {
+        ui.textBrowser->append("No Port!");
+    }
+    else {
+        /*搜索可用串口*/
+        for each (const  QSerialPortInfo & Portinfo  in QSerialPortInfo::availablePorts())
+        {
+            ui.PortSelect->addItem(Portinfo.portName());
+        }
+    }
+
+
+    /*设置串口参数变量*/
+
+    baudrate = BaudRateArray[ui.BaudSelect->currentIndex()];
+    databit = DataBitsArray[ui.DataBitSelect->currentIndex()];
+    stopbit = StopBitsArray[ui.StopBitSelect->currentIndex()];
+   
+    /*设置串口*/
+    serialPort->setPortName(ui.PortSelect->currentText());
+    serialPort->setBaudRate(baudrate);
+    serialPort->setDataBits(databit);
+    serialPort->setStopBits(stopbit);
+    serialPort->setParity(QSerialPort::NoParity);
+
+    /*打开串口提示*/
+    if (serialPort->open(QIODevice::ReadWrite))
+    {
+		ui.textBrowser->append("Open Port Success!");
+	}
+    else
+    {
+		ui.textBrowser->append("Open Port Failed!");
+	}
 }
 
+void ZigbeeLaserRange::StopPortButtonClicked()
+{
+    serialPort->close();
+    /*关闭串口提示*/
+    if (serialPort->isOpen())
+    {
+		ui.textBrowser->append("Close Port Failed!");
+	}
+    else
+    {
+		ui.textBrowser->append("Close Port Success!");
+	}
+}
+
+void void ZigbeeLaserRange::ScanPortButtonClicked()
+{
+	/*搜索可用串口*/
+    for each (const  QSerialPortInfo & Portinfo  in QSerialPortInfo::availablePorts())
+    {
+		ui.PortSelect->addItem(Portinfo.portName());
+	}
+}
