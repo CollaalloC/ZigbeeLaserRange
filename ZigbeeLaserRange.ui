@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>597</width>
-    <height>288</height>
+    <width>637</width>
+    <height>333</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>190</x>
       <y>30</y>
-      <width>221</width>
-      <height>181</height>
+      <width>261</width>
+      <height>211</height>
      </rect>
     </property>
    </widget>
@@ -171,7 +171,7 @@
    <widget class="QPushButton" name="autoOneTimeMeasurementButton">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>520</x>
       <y>60</y>
       <width>41</width>
       <height>24</height>
@@ -184,7 +184,7 @@
    <widget class="QLabel" name="oneTimeMeasurementLabel">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>460</x>
       <y>60</y>
       <width>53</width>
       <height>31</height>
@@ -202,7 +202,7 @@
    <widget class="QPushButton" name="manualOneTimeMeasurementButton">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>570</x>
       <y>60</y>
       <width>41</width>
       <height>24</height>
@@ -215,7 +215,7 @@
    <widget class="QLabel" name="sequentialMeasurementLabel">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>460</x>
       <y>110</y>
       <width>53</width>
       <height>31</height>
@@ -233,7 +233,7 @@
    <widget class="QPushButton" name="autoSequentialMeasurementButton">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>520</x>
       <y>100</y>
       <width>41</width>
       <height>24</height>
@@ -246,7 +246,7 @@
    <widget class="QPushButton" name="manualSequentialMeasurementButton">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>570</x>
       <y>100</y>
       <width>41</width>
       <height>24</height>
@@ -259,7 +259,7 @@
    <widget class="QPushButton" name="rapidAutoSequentialMeasurementButton">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>520</x>
       <y>130</y>
       <width>91</width>
       <height>24</height>
@@ -272,7 +272,7 @@
    <widget class="QLabel" name="stopMeasurement">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>460</x>
       <y>160</y>
       <width>53</width>
       <height>31</height>
@@ -290,7 +290,7 @@
    <widget class="QPushButton" name="stopMeasurementButton">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>520</x>
       <y>160</y>
       <width>91</width>
       <height>24</height>
@@ -303,7 +303,7 @@
    <widget class="QLabel" name="laserOnOffLabel">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>460</x>
       <y>190</y>
       <width>53</width>
       <height>21</height>
@@ -316,7 +316,7 @@
    <widget class="QPushButton" name="laserONButton">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>520</x>
       <y>190</y>
       <width>41</width>
       <height>24</height>
@@ -329,7 +329,7 @@
    <widget class="QPushButton" name="laserOFFButton">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>570</x>
       <y>190</y>
       <width>41</width>
       <height>24</height>
@@ -342,7 +342,7 @@
    <widget class="QLabel" name="configLabel">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>460</x>
       <y>30</y>
       <width>53</width>
       <height>31</height>
@@ -355,7 +355,7 @@
    <widget class="QPushButton" name="getConfigButton">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>520</x>
       <y>30</y>
       <width>41</width>
       <height>24</height>
@@ -368,7 +368,7 @@
    <widget class="QPushButton" name="setConfigButton">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>570</x>
       <y>30</y>
       <width>41</width>
       <height>24</height>
@@ -382,8 +382,8 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>210</y>
-      <width>201</width>
+      <y>250</y>
+      <width>241</width>
       <height>24</height>
      </rect>
     </property>
@@ -397,7 +397,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>597</width>
+     <width>637</width>
      <height>22</height>
     </rect>
    </property>

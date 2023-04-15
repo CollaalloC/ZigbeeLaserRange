@@ -51,25 +51,6 @@ void ZigbeeLaserRange::openPortButtonClicked()
     QSerialPort::StopBits stopbit;
     QSerialPort::Parity parity;
 
-
-    /*添加到combo box选项卡中*/
-    for each (QSerialPort::BaudRate BaudRate in serialPortConfig.BaudRateArray)
-    {
-        ui.baudSelect->addItem(QString::number(BaudRate));
-    }
-    for each (QSerialPort::DataBits DataBits in serialPortConfig.DataBitsArray)
-    {
-        ui.dataBitSelect->addItem(QString::number(DataBits));
-    }
-    for each (QSerialPort::StopBits StopBits in serialPortConfig.StopBitsArray)
-    {
-        ui.stopBitSelect->addItem(QString::number(StopBits));
-    }
-    for each (QString ParityString in serialPortConfig.ParityArrayString)
-    {
-        ui.paritBitSelect->addItem(ParityString);
-    }
-
     /*设置串口参数变量*/
 
     baudrate =serialPortConfig.BaudRateArray[ui.baudSelect->currentIndex()];
@@ -82,7 +63,7 @@ void ZigbeeLaserRange::openPortButtonClicked()
     serialPort->setBaudRate(baudrate);
     serialPort->setDataBits(databit);
     serialPort->setStopBits(stopbit);
-    serialPort->setParity(QSerialPort::NoParity);
+    serialPort->setParity(parity);
 
     /*打开串口提示*/
     if (serialPort->open(QIODevice::ReadWrite))
@@ -122,8 +103,6 @@ void ZigbeeLaserRange::scanPortButtonClicked()
             ui.portSelect->addItem(Portinfo.portName());
         }
     }
-
-   
 }
 
 // 停止测量
@@ -193,12 +172,28 @@ void ZigbeeLaserRange::autoSequentialButtonClicked()
 void ZigbeeLaserRange::autoOneTimeButtonClicked()
 {
     serialPort->write("iSM");
-    ui.textBrowser->append("单次测量");
+    ui.textBrowser->append("单次测量\n");
+}
+
+// 清空显示屏
+void ZigbeeLaserRange::clearButtonClicked()
+{
+    // 清空显示
+    ui.textBrowser->clear();
+
 }
 //读串口数据
 void ZigbeeLaserRange::readData()
 {
-    QString buff;
-    buff = serialPort->readAll();
-    ui.textBrowser->append(buff);
+//完整打印串口文本
+    QByteArray buf;
+	buf = serialPort->readAll();
+    if (!buf.isEmpty())
+    {
+		QString str = ui.textBrowser->toPlainText();
+		str += tr(buf);
+		ui.textBrowser->clear();
+		ui.textBrowser->append(str);
+	}
+	buf.clear();
 }
