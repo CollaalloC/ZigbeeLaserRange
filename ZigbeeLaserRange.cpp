@@ -192,6 +192,13 @@ void ZigbeeLaserRange::autoSequentialButtonClicked()
 // 自动单次测量
 void ZigbeeLaserRange::autoOneTimeButtonClicked()
 {
-    
-
+    serialPort->write("iSM");
+    ui.textBrowser->append("单次测量");
+}
+//读串口数据
+void ZigbeeLaserRange::readData()
+{
+    QString buff;
+    buff = serialPort->readAll();
+    ui.textBrowser->append(buff);
 }
