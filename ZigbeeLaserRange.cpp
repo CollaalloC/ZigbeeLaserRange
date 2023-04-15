@@ -7,14 +7,35 @@ ZigbeeLaserRange::ZigbeeLaserRange(QWidget *parent)
     ui.setupUi(this);
     QStringList serialNamePort;
     this->setWindowTitle("Laser Ranging Control");
-    serialPort = new QSerialPort(this); //new创建一个串口对象
+    //使用new创建一个串口对象
+    serialPort = new QSerialPort(this); 
 
     /*搜索可用串口*/
     for each (const  QSerialPortInfo &Portinfo  in QSerialPortInfo::availablePorts())
     {
         ui.portSelect->addItem( Portinfo.portName());
     }
-    
+    //连接串口读取信号与读取槽函数
+    connect(serialPort, SIGNAL(readyRead()), this, SLOT(readData()));
+
+    /*串口参数下拉框初始化*/
+
+    for each (QSerialPort::BaudRate BaudRate in serialPortConfig.BaudRateArray)
+    {
+        ui.baudSelect->addItem(QString::number(BaudRate));
+    }
+    for each (QSerialPort::DataBits DataBits in serialPortConfig.DataBitsArray)
+    {
+        ui.dataBitSelect->addItem(QString::number(DataBits));
+    }
+    for each (QSerialPort::StopBits StopBits in serialPortConfig.StopBitsArray)
+    {
+        ui.stopBitSelect->addItem(QString::number(StopBits));
+    }
+    for each (QString parityString in serialPortConfig.ParityArrayString)
+    {
+        ui.paritBitSelect->addItem(parityString);
+    }
 }
 
 ZigbeeLaserRange::~ZigbeeLaserRange()
@@ -57,9 +78,10 @@ void ZigbeeLaserRange::openPortButtonClicked()
 
     /*设置串口参数变量*/
 
-    baudrate = BaudRateArray[ui.baudSelect->currentIndex()];
-    databit = DataBitsArray[ui.dataBitSelect->currentIndex()];
-    stopbit = StopBitsArray[ui.stopBitSelect->currentIndex()];
+    baudrate =serialPortConfig.BaudRateArray[ui.baudSelect->currentIndex()];
+    databit = serialPortConfig.DataBitsArray[ui.dataBitSelect->currentIndex()];
+    stopbit = serialPortConfig.StopBitsArray[ui.stopBitSelect->currentIndex()];
+    parity = serialPortConfig.ParityArray[ui.paritBitSelect->currentIndex()];//注意这里应为数数组，而不是String 数组
    
     /*设置串口*/
     serialPort->setPortName(ui.portSelect->currentText());
