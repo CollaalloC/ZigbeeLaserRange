@@ -110,3 +110,71 @@ void ZigbeeLaserRange::scanPortButtonClicked()
    
 }
 
+// 停止测量
+void ZigbeeLaserRange::stopMeasurementButtonClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 设置配置按钮，点击时新建界面，在界面中配置参数
+void ZigbeeLaserRange::setConfigButtonClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 快速连续测量按钮
+void ZigbeeLaserRange::rapidSequentialButtonClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 手动连续测量
+void ZigbeeLaserRange::manualSequentialButtionClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 手动单次测量
+void ZigbeeLaserRange::manualOneTimeClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 激光开
+void ZigbeeLaserRange::laserONClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 激光关
+void ZigbeeLaserRange::laserOFFClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 打印参数信息
+void ZigbeeLaserRange::getConfigButtonClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 自动连续测量
+void ZigbeeLaserRange::autoSequentialButtonClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 自动单次测量
+void ZigbeeLaserRange::autoOneTimeButton()
+{
+    // TODO: 在此处添加实现代码.
+}

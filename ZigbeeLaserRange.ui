@@ -534,7 +534,7 @@
    <sender>manualOneTimeMeasurementButton</sender>
    <signal>clicked()</signal>
    <receiver>ZigbeeLaserRangeClass</receiver>
-   <slot>manualOnetimeButtonClicked()</slot>
+   <slot>manualOneTimeButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>560</x>
@@ -650,7 +650,7 @@
   <slot>setConfigButtonClicked()</slot>
   <slot>getConfigButtonClicked()</slot>
   <slot>autoOneTimeButtonClicked()</slot>
-  <slot>manualOnetimeButtonClicked()</slot>
+  <slot>manualOneTimeButtonClicked()</slot>
   <slot>autoSequentialButtonClicked()</slot>
   <slot>manualSequentialButtonClicked()</slot>
   <slot>rapidSequentialButtonClicked()</slot>
