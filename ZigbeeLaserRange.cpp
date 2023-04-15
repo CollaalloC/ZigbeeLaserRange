@@ -44,13 +44,7 @@ ZigbeeLaserRange::~ZigbeeLaserRange()
 }
 
 void ZigbeeLaserRange::openPortButtonClicked()
-{
-    /*串口参数数组*/
-    QSerialPort::BaudRate BaudRateArray[5] = { QSerialPort::Baud1200,QSerialPort::Baud2400,QSerialPort::Baud4800,QSerialPort::Baud9600,QSerialPort::Baud115200 };
-    QSerialPort::DataBits DataBitsArray[3] = { QSerialPort::Data5,QSerialPort::Data6,QSerialPort::Data7 };
-    QSerialPort::StopBits StopBitsArray[2] = { QSerialPort::OneStop,QSerialPort::TwoStop };
-    QSerialPort::Parity ParityArray[3] = { QSerialPort::NoParity,QSerialPort::EvenParity,QSerialPort::OddParity };
-   
+{ 
     /*串口参数变量*/
     QSerialPort::BaudRate baudrate;
     QSerialPort::DataBits databit;
@@ -59,21 +53,21 @@ void ZigbeeLaserRange::openPortButtonClicked()
 
 
     /*添加到combo box选项卡中*/
-    for each (QSerialPort::BaudRate BaudRate in BaudRateArray)
+    for each (QSerialPort::BaudRate BaudRate in serialPortConfig.BaudRateArray)
     {
         ui.baudSelect->addItem(QString::number(BaudRate));
     }
-    for each (QSerialPort::DataBits DataBits in DataBitsArray)
+    for each (QSerialPort::DataBits DataBits in serialPortConfig.DataBitsArray)
     {
         ui.dataBitSelect->addItem(QString::number(DataBits));
     }
-    for each (QSerialPort::StopBits StopBits in StopBitsArray)
+    for each (QSerialPort::StopBits StopBits in serialPortConfig.StopBitsArray)
     {
         ui.stopBitSelect->addItem(QString::number(StopBits));
     }
-    for each (QSerialPort::Parity Parity in ParityArray)
+    for each (QString ParityString in serialPortConfig.ParityArrayString)
     {
-        ui.paritBitSelect->addItem(QString::number(Parity));
+        ui.paritBitSelect->addItem(ParityString);
     }
 
     /*设置串口参数变量*/
@@ -198,5 +192,6 @@ void ZigbeeLaserRange::autoSequentialButtonClicked()
 // 自动单次测量
 void ZigbeeLaserRange::autoOneTimeButtonClicked()
 {
-    // TODO: 在此处添加实现代码.
+    
+
 }
