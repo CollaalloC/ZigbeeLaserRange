@@ -10,9 +10,11 @@ class ZigbeeLaserRange : public QMainWindow
 {
     Q_OBJECT
 
-public:
-    ZigbeeLaserRange(QWidget *parent = nullptr);
-    ~ZigbeeLaserRange();
+private:
+    Ui::ZigbeeLaserRangeClass ui;
+    QSerialPort* serialPort;
+    
+   
 
 private slots:
        //打开串口按钮，点击时打开串口
@@ -40,9 +42,24 @@ private slots:
        // 自动连续测量
        void autoSequentialButtonClicked();
        // 自动单次测量
-       void autoOneTimeButton();
-private:
-    Ui::ZigbeeLaserRangeClass ui;
-    QSerialPort* serialPort;
+       void autoOneTimeButtonClicked();
+       // 清空显示屏
+       void clearButtonClicked();
+       // 读取串口数据
+       void readData();
+
+
+public:
+    ZigbeeLaserRange(QWidget* parent = nullptr);
+    ~ZigbeeLaserRange();
+    //串口参数数组结构体
+    struct SerialPortConfig
+    {
+        QSerialPort::BaudRate BaudRateArray[5] = { QSerialPort::Baud1200, QSerialPort::Baud2400, QSerialPort::Baud4800, QSerialPort::Baud9600, QSerialPort::Baud115200 };
+        QSerialPort::DataBits DataBitsArray[4] = { QSerialPort::Data5, QSerialPort::Data6, QSerialPort::Data7, QSerialPort::Data8 };
+        QSerialPort::StopBits StopBitsArray[2] = { QSerialPort::OneStop, QSerialPort::TwoStop };
+        QSerialPort::Parity ParityArray[3] = { QSerialPort::NoParity, QSerialPort::EvenParity, QSerialPort::OddParity };
+        QString ParityArrayString[3] = { "NoParity", "EvenParity", "OddParity" };
+    }*serialPortConfig;
 
 };

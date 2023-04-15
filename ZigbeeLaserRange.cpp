@@ -7,28 +7,47 @@ ZigbeeLaserRange::ZigbeeLaserRange(QWidget *parent)
     ui.setupUi(this);
     QStringList serialNamePort;
     this->setWindowTitle("Laser Ranging Control");
-    serialPort = new QSerialPort(this); //new创建一个串口对象
-
+    //使用new创建一个串口对象
+    serialPort = new QSerialPort(this); 
+    /*使用new创建串口配置结构体*/
+    SerialPortConfig* serialPortConfig = new SerialPortConfig;
     /*搜索可用串口*/
-    for each (const  QSerialPortInfo &Portinfo  in QSerialPortInfo::availablePorts())
+    for each (const  QSerialPortInfo & Portinfo  in QSerialPortInfo::availablePorts())
     {
-        ui.portSelect->addItem( Portinfo.portName());
+        ui.portSelect->addItem(Portinfo.portName());
     }
-    
+    //连接串口读取信号与读取槽函数
+    connect(serialPort, SIGNAL(readyRead()), this, SLOT(readData()));
+
+    /*串口参数下拉框初始化*/
+
+    for each (QSerialPort::BaudRate BaudRate in serialPortConfig->BaudRateArray)
+    {
+        ui.baudSelect->addItem(QString::number(BaudRate));
+    }
+    for each (QSerialPort::DataBits DataBits in serialPortConfig->DataBitsArray)
+    {
+        ui.dataBitSelect->addItem(QString::number(DataBits));
+    }
+    for each (QSerialPort::StopBits StopBits in serialPortConfig->StopBitsArray)
+    {
+        ui.stopBitSelect->addItem(QString::number(StopBits));
+    }
+    for each (QString parityString in serialPortConfig->ParityArrayString)
+    {
+        ui.paritBitSelect->addItem(parityString);
+    }
 }
 
 ZigbeeLaserRange::~ZigbeeLaserRange()
 {
     delete serialPort; //释放serialPort内存
+    delete serialPortConfig; //释放serialPortConfig内存
 }
+
 
 void ZigbeeLaserRange::openPortButtonClicked()
 {
-    /*串口参数数组*/
-    QSerialPort::BaudRate BaudRateArray[5] = { QSerialPort::Baud1200,QSerialPort::Baud2400,QSerialPort::Baud4800,QSerialPort::Baud9600,QSerialPort::Baud115200 };
-    QSerialPort::DataBits DataBitsArray[3] = { QSerialPort::Data5,QSerialPort::Data6,QSerialPort::Data7 };
-    QSerialPort::StopBits StopBitsArray[2] = { QSerialPort::OneStop,QSerialPort::TwoStop };
-    QSerialPort::Parity ParityArray[3] = { QSerialPort::NoParity,QSerialPort::EvenParity,QSerialPort::OddParity };
    
     /*串口参数变量*/
     QSerialPort::BaudRate baudrate;
@@ -37,36 +56,20 @@ void ZigbeeLaserRange::openPortButtonClicked()
     QSerialPort::Parity parity;
 
 
-    /*添加到combo box选项卡中*/
-    for each (QSerialPort::BaudRate BaudRate in BaudRateArray)
-    {
-        ui.baudSelect->addItem(QString::number(BaudRate));
-    }
-    for each (QSerialPort::DataBits DataBits in DataBitsArray)
-    {
-        ui.dataBitSelect->addItem(QString::number(DataBits));
-    }
-    for each (QSerialPort::StopBits StopBits in StopBitsArray)
-    {
-        ui.stopBitSelect->addItem(QString::number(StopBits));
-    }
-    for each (QSerialPort::Parity Parity in ParityArray)
-    {
-        ui.paritBitSelect->addItem(QString::number(Parity));
-    }
 
     /*设置串口参数变量*/
 
-    baudrate = BaudRateArray[ui.baudSelect->currentIndex()];
-    databit = DataBitsArray[ui.dataBitSelect->currentIndex()];
-    stopbit = StopBitsArray[ui.stopBitSelect->currentIndex()];
+    baudrate =serialPortConfig->BaudRateArray[ui.baudSelect->currentIndex()];
+    databit = serialPortConfig->DataBitsArray[ui.dataBitSelect->currentIndex()];
+    stopbit = serialPortConfig->StopBitsArray[ui.stopBitSelect->currentIndex()];
+    parity = serialPortConfig->ParityArray[ui.paritBitSelect->currentIndex()];//注意这里应为数数组，而不是String 数组
    
     /*设置串口*/
     serialPort->setPortName(ui.portSelect->currentText());
     serialPort->setBaudRate(baudrate);
     serialPort->setDataBits(databit);
     serialPort->setStopBits(stopbit);
-    serialPort->setParity(QSerialPort::NoParity);
+    serialPort->setParity(parity);
 
     /*打开串口提示*/
     if (serialPort->open(QIODevice::ReadWrite))
@@ -174,7 +177,28 @@ void ZigbeeLaserRange::autoSequentialButtonClicked()
 
 
 // 自动单次测量
-void ZigbeeLaserRange::autoOneTimeButton()
+void ZigbeeLaserRange::autoOneTimeButtonClicked()
 {
-    // TODO: 在此处添加实现代码.
+    // 串口发送'iSM' ASCII码
+    serialPort->write("iSM");
+
+    //打印发送的数据
+    ui.textBrowser->append("单次测量");
+}
+
+
+// 清空显示屏
+void ZigbeeLaserRange::clearButtonClicked()
+{
+    // 清空显示
+    ui.textBrowser->clear();
+
+}
+//读取串口数据
+
+void ZigbeeLaserRange::readData()
+{
+    QString buff;
+    buff = serialPort->readAll();
+    ui.textBrowser->append(buff);
 }
