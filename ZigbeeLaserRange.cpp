@@ -196,7 +196,7 @@ void ZigbeeLaserRange::autoSequentialButtonClicked()
 
 
 // 自动单次测量
-void ZigbeeLaserRange::autoOneTimeButton()
+void ZigbeeLaserRange::autoOneTimeButtonClicked()
 {
     // TODO: 在此处添加实现代码.
 }
