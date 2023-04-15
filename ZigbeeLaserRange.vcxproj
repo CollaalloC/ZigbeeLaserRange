@@ -94,13 +94,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="ZigbeeLaserRange.qrc" />
+    <QtUic Include="Config.ui" />
+    <QtUic Include="ConfigClass.ui" />
     <QtUic Include="ZigbeeLaserRange.ui" />
     <QtMoc Include="ZigbeeLaserRange.h" />
+    <ClCompile Include="ConfigClass.cpp" />
     <ClCompile Include="ZigbeeLaserRange.cpp" />
     <ClCompile Include="main.cpp" />
     <None Include="ClassDiagram.cd" />
     <None Include="ZigbeeLaserRange.ico" />
     <ResourceCompile Include="ZigbeeLaserRange.rc" />
+    <QtMoc Include="ConfigClass.h" />
     <ClInclude Include="stdafx.h" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">Create</PrecompiledHeader>

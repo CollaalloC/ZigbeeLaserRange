@@ -198,7 +198,7 @@
      <string>扫描串口</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="autoOneTimeMeasurementButton">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -229,7 +229,7 @@
      <string>单次测量</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="manualOneTimeMeasurementButton">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -260,7 +260,7 @@
      <string>连续测量</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="autoSequentialMeasurementButton">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -273,7 +273,7 @@
      <string>自动</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="manualSequentialMeasurementButton">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -286,7 +286,7 @@
      <string>手动</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="rapidAutoSequentialMeasurementButton">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -317,7 +317,7 @@
      <string>停止测量</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="stopMeasurementButton">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -343,7 +343,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;激光开关&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="laserONButton">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -356,7 +356,7 @@
      <string>开</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="laserOFFButton">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -382,7 +382,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;参数&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_9">
+   <widget class="QPushButton" name="getConfigButton">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -395,7 +395,7 @@
      <string>查询</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_10">
+   <widget class="QPushButton" name="setConfigButton">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -482,10 +482,180 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>setConfigButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>setConfigButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>548</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>549</x>
+     <y>42</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>getConfigButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>getConfigButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>498</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>498</x>
+     <y>43</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>autoOneTimeMeasurementButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>autoOneTimeButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>485</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>469</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>manualOneTimeMeasurementButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>manualOnetimeButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>560</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>584</x>
+     <y>55</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>autoSequentialMeasurementButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>autoSequentialButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>501</x>
+     <y>142</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>manualSequentialMeasurementButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>manualSequentialButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>540</x>
+     <y>145</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>585</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rapidAutoSequentialMeasurementButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>rapidSequentialButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>508</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stopMeasurementButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>stopMeasurementButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>523</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>587</x>
+     <y>175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>laserONButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>laserONClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>494</x>
+     <y>233</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>448</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>laserOFFButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>laserOFFClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>544</x>
+     <y>233</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>586</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>openPortButtonClicked()</slot>
   <slot>closePortButtonClicked()</slot>
   <slot>scanPortButtonClicked()</slot>
+  <slot>setConfigButtonClicked()</slot>
+  <slot>getConfigButtonClicked()</slot>
+  <slot>autoOneTimeButtonClicked()</slot>
+  <slot>manualOnetimeButtonClicked()</slot>
+  <slot>autoSequentialButtonClicked()</slot>
+  <slot>manualSequentialButtonClicked()</slot>
+  <slot>rapidSequentialButtonClicked()</slot>
+  <slot>stopMeasurementButtonClicked()</slot>
+  <slot>laserONClicked()</slot>
+  <slot>laserOFFClicked()</slot>
  </slots>
 </ui>
