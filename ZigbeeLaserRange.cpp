@@ -36,6 +36,8 @@ ZigbeeLaserRange::ZigbeeLaserRange(QWidget *parent)
     {
         ui.paritBitSelect->addItem(parityString);
     }
+    ui.baudSelect->setCurrentIndex(4);
+    ui.dataBitSelect->setCurrentIndex(3);
 }
 
 ZigbeeLaserRange::~ZigbeeLaserRange()
@@ -109,7 +111,7 @@ void ZigbeeLaserRange::scanPortButtonClicked()
 void ZigbeeLaserRange::stopMeasurementButtonClicked()
 {
     serialPort->write("iHALT");
-    ui.textBrowser->append("停止测量");
+    ui.textBrowser->append("停止测量\n");
 }
 
 
@@ -124,15 +126,15 @@ void ZigbeeLaserRange::setConfigButtonClicked()
 void ZigbeeLaserRange::rapidSequentialButtonClicked()
 {
     serialPort->write("iFACM");
-    ui.textBrowser->append("快速自动连续测量");
+    ui.textBrowser->append("快速连续测量\n");
 }
 
 
 // 手动单次测量
-void ZigbeeLaserRange::manualOneTimeClicked()
+void ZigbeeLaserRange::manualOneTimeButtonClicked()
 {
     serialPort->write("iCM");
-    ui.textBrowser->append("手动单次测量");
+    ui.textBrowser->append("手动单次测量\n");
 }
 
 
@@ -140,7 +142,7 @@ void ZigbeeLaserRange::manualOneTimeClicked()
 void ZigbeeLaserRange::laserONClicked()
 {
     serialPort->write("iLD:1");
-    ui.textBrowser->append("激光开");
+    ui.textBrowser->append("激光开\n");
 }
 
 
@@ -148,7 +150,7 @@ void ZigbeeLaserRange::laserONClicked()
 void ZigbeeLaserRange::laserOFFClicked()
 {
     serialPort->write("iLD:0");
-    ui.textBrowser->append("激光关");
+    ui.textBrowser->append("激光关\n");
 }
 
 
@@ -163,7 +165,7 @@ void ZigbeeLaserRange::getConfigButtonClicked()
 void ZigbeeLaserRange::autoSequentialButtonClicked()
 {
     serialPort->write("iACM");
-    ui.textBrowser->append("自动连续测量");
+    ui.textBrowser->append("自动连续测量\n");
 }
 
 
@@ -171,7 +173,7 @@ void ZigbeeLaserRange::autoSequentialButtonClicked()
 void ZigbeeLaserRange::autoOneTimeButtonClicked()
 {
     serialPort->write("iSM");
-    ui.textBrowser->append("单次测量");
+    ui.textBrowser->append("单次测量\n");
 }
 
 // 清空显示屏

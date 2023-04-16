@@ -39,7 +39,7 @@ private slots:
        void rapidSequentialButtonClicked();
 
        // 手动单次测量
-       void manualOneTimeClicked();
+       void manualOneTimeButtonClicked();
        // 激光开
        void laserONClicked();
        // 激光关
