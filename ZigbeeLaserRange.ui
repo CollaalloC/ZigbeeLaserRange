@@ -235,25 +235,12 @@
      <rect>
       <x>520</x>
       <y>100</y>
-      <width>41</width>
+      <width>91</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
      <string>自动</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="manualSequentialMeasurementButton">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>100</y>
-      <width>41</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>手动</string>
     </property>
    </widget>
    <widget class="QPushButton" name="rapidAutoSequentialMeasurementButton">
@@ -542,22 +529,6 @@
     <hint type="destinationlabel">
      <x>449</x>
      <y>127</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>manualSequentialMeasurementButton</sender>
-   <signal>clicked()</signal>
-   <receiver>ZigbeeLaserRangeClass</receiver>
-   <slot>manualSequentialButtonClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>540</x>
-     <y>145</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>585</x>
-     <y>126</y>
     </hint>
    </hints>
   </connection>

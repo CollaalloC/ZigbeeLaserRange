@@ -108,7 +108,8 @@ void ZigbeeLaserRange::scanPortButtonClicked()
 // 停止测量
 void ZigbeeLaserRange::stopMeasurementButtonClicked()
 {
-    // TODO: 在此处添加实现代码.
+    serialPort->write("iHALT");
+    ui.textBrowser->append("停止测量");
 }
 
 
@@ -122,35 +123,32 @@ void ZigbeeLaserRange::setConfigButtonClicked()
 // 快速连续测量按钮
 void ZigbeeLaserRange::rapidSequentialButtonClicked()
 {
-    // TODO: 在此处添加实现代码.
-}
-
-
-// 手动连续测量
-void ZigbeeLaserRange::manualSequentialButtionClicked()
-{
-    // TODO: 在此处添加实现代码.
+    serialPort->write("iFACM");
+    ui.textBrowser->append("快速自动连续测量");
 }
 
 
 // 手动单次测量
 void ZigbeeLaserRange::manualOneTimeClicked()
 {
-    // TODO: 在此处添加实现代码.
+    serialPort->write("iCM");
+    ui.textBrowser->append("手动单次测量");
 }
 
 
 // 激光开
 void ZigbeeLaserRange::laserONClicked()
 {
-    // TODO: 在此处添加实现代码.
+    serialPort->write("iLD:1");
+    ui.textBrowser->append("激光开");
 }
 
 
 // 激光关
 void ZigbeeLaserRange::laserOFFClicked()
 {
-    // TODO: 在此处添加实现代码.
+    serialPort->write("iLD:0");
+    ui.textBrowser->append("激光关");
 }
 
 
@@ -164,7 +162,8 @@ void ZigbeeLaserRange::getConfigButtonClicked()
 // 自动连续测量
 void ZigbeeLaserRange::autoSequentialButtonClicked()
 {
-    // TODO: 在此处添加实现代码.
+    serialPort->write("iACM");
+    ui.textBrowser->append("自动连续测量");
 }
 
 
@@ -172,7 +171,7 @@ void ZigbeeLaserRange::autoSequentialButtonClicked()
 void ZigbeeLaserRange::autoOneTimeButtonClicked()
 {
     serialPort->write("iSM");
-    ui.textBrowser->append("单次测量\n");
+    ui.textBrowser->append("单次测量");
 }
 
 // 清空显示屏

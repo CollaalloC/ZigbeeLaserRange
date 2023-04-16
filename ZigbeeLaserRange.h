@@ -37,8 +37,7 @@ private slots:
        void setConfigButtonClicked();
        // 快速连续测量按钮
        void rapidSequentialButtonClicked();
-       // 手动连续测量
-       void manualSequentialButtionClicked();
+
        // 手动单次测量
        void manualOneTimeClicked();
        // 激光开
