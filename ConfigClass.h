@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include "ui_ConfigClass.h"
+#include "Config.h"
 
 class ConfigClass : public QWidget
 {
