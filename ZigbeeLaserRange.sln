@@ -5,16 +5,48 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZigbeeLaserRange", "ZigbeeLaserRange.vcxproj", "{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WIFI", "..\..\..\Arduino\WIFI\WIFI.vcxproj", "{B043EB5B-BFDA-4EDF-85D5-135757934202}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Debug|ARM.ActiveCfg = Debug|x64
+		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Debug|ARM.Build.0 = Debug|x64
+		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Debug|ARM64.ActiveCfg = Debug|x64
+		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Debug|ARM64.Build.0 = Debug|x64
 		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Debug|x64.ActiveCfg = Debug|x64
 		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Debug|x64.Build.0 = Debug|x64
+		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Release|ARM.ActiveCfg = Release|x64
+		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Release|ARM.Build.0 = Release|x64
+		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Release|ARM64.ActiveCfg = Release|x64
+		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Release|ARM64.Build.0 = Release|x64
 		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Release|x64.ActiveCfg = Release|x64
 		{4892DCEA-45EC-42BA-BBA8-6912D25EF2B7}.Release|x64.Build.0 = Release|x64
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Debug|ARM.Build.0 = Debug|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Debug|ARM.Deploy.0 = Debug|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Debug|ARM64.Build.0 = Debug|ARM64
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Debug|x64.ActiveCfg = Debug|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Debug|x64.Build.0 = Debug|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Debug|x64.Deploy.0 = Debug|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Release|ARM.ActiveCfg = Release|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Release|ARM.Build.0 = Release|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Release|ARM.Deploy.0 = Release|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Release|ARM64.ActiveCfg = Release|ARM64
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Release|ARM64.Build.0 = Release|ARM64
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Release|ARM64.Deploy.0 = Release|ARM64
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Release|x64.ActiveCfg = Release|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Release|x64.Build.0 = Release|ARM
+		{B043EB5B-BFDA-4EDF-85D5-135757934202}.Release|x64.Deploy.0 = Release|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

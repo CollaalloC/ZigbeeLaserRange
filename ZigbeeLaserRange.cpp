@@ -10,7 +10,8 @@ ZigbeeLaserRange::ZigbeeLaserRange(QWidget *parent)
     //使用new创建一个串口对象
     serialPort = new QSerialPort(this); 
     /*使用new创建串口配置结构体*/
-    SerialPortConfig* serialPortConfig = new SerialPortConfig;
+   serialPortConfig = new SerialPortConfig;
+    //SerialPortConfig* serialPortConfig =&serialPortConfig;
     /*搜索可用串口*/
     for each (const  QSerialPortInfo & Portinfo  in QSerialPortInfo::availablePorts())
     {
@@ -42,7 +43,7 @@ ZigbeeLaserRange::ZigbeeLaserRange(QWidget *parent)
 ZigbeeLaserRange::~ZigbeeLaserRange()
 {
     delete serialPort; //释放serialPort内存
-    delete serialPortConfig; //释放serialPortConfig内存
+   // delete serialPortConfig; //释放serialPortConfig内存
 }
 
 
