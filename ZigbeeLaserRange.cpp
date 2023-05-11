@@ -198,3 +198,22 @@ void ZigbeeLaserRange::readData()
 	}
 	buf.clear();
 }
+
+void ZigbeeLaserRange::connectButtonClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 控制方式为有线
+void ZigbeeLaserRange::enableSerialButtonClicked()
+{
+    // TODO: 在此处添加实现代码.
+}
+
+
+// 控制方式为无线
+void ZigbeeLaserRange::enableNetButtonClicked()
+{
+    // TODO: 在此处添加实现代码.
+}

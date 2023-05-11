@@ -5,6 +5,8 @@
 #include "Config.h"
 #include <QSerialPort>
 #include <QSerialPortInfo>
+#include <Qtcpserver>
+#include <Qtcpsocket>
 
 
 class ZigbeeLaserRange : public QMainWindow
@@ -49,9 +51,15 @@ private slots:
        // 读取串口数据
        void readData();
 
+       void connectButtonClicked();
+       // 控制方式为有线
+       void enableSerialButtonClicked();
+       // 控制方式为无线
+       void enableNetButtonClicked();
 
 public:
     ZigbeeLaserRange(QWidget* parent = nullptr);
     ~ZigbeeLaserRange();
-    //串口参数数组结构体
+
+
 };

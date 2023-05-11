@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>637</width>
-    <height>333</height>
+    <height>354</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -326,7 +326,7 @@
      <string>关</string>
     </property>
    </widget>
-   <widget class="QLabel" name="configLabel">
+   <widget class="QLabel" name="stateLabel">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -336,10 +336,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;参数&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;控制方式&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="getConfigButton">
+   <widget class="QPushButton" name="enableSerialButton">
     <property name="geometry">
      <rect>
       <x>520</x>
@@ -349,10 +349,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>查询</string>
+     <string>有线</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="setConfigButton">
+   <widget class="QPushButton" name="enableNetButton">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -362,7 +362,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>设置</string>
+     <string>无线</string>
     </property>
    </widget>
    <widget class="QPushButton" name="clearButton">
@@ -376,6 +376,39 @@
     </property>
     <property name="text">
      <string>清屏</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="port">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>230</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ipaddress">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>113</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="connectButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>连接</string>
     </property>
    </widget>
   </widget>
@@ -453,34 +486,18 @@
    </hints>
   </connection>
   <connection>
-   <sender>setConfigButton</sender>
+   <sender>enableNetButton</sender>
    <signal>clicked()</signal>
    <receiver>ZigbeeLaserRangeClass</receiver>
-   <slot>setConfigButtonClicked()</slot>
+   <slot>enableNetButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>548</x>
-     <y>69</y>
+     <x>570</x>
+     <y>87</y>
     </hint>
     <hint type="destinationlabel">
-     <x>549</x>
-     <y>42</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>getConfigButton</sender>
-   <signal>clicked()</signal>
-   <receiver>ZigbeeLaserRangeClass</receiver>
-   <slot>getConfigButtonClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>498</x>
-     <y>74</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>498</x>
-     <y>43</y>
+     <x>562</x>
+     <y>41</y>
     </hint>
    </hints>
   </connection>
@@ -491,12 +508,12 @@
    <slot>autoOneTimeButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>485</x>
-     <y>106</y>
+     <x>520</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
-     <x>469</x>
-     <y>57</y>
+     <x>480</x>
+     <y>58</y>
     </hint>
    </hints>
   </connection>
@@ -507,8 +524,8 @@
    <slot>manualOneTimeButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>560</x>
-     <y>98</y>
+     <x>570</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>584</x>
@@ -523,8 +540,8 @@
    <slot>autoSequentialButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>501</x>
-     <y>142</y>
+     <x>520</x>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
      <x>449</x>
@@ -539,8 +556,8 @@
    <slot>rapidSequentialButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>508</x>
-     <y>173</y>
+     <x>520</x>
+     <y>187</y>
     </hint>
     <hint type="destinationlabel">
      <x>449</x>
@@ -571,8 +588,8 @@
    <slot>laserONClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>494</x>
-     <y>233</y>
+     <x>520</x>
+     <y>247</y>
     </hint>
     <hint type="destinationlabel">
      <x>448</x>
@@ -587,8 +604,8 @@
    <slot>laserOFFClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>544</x>
-     <y>233</y>
+     <x>570</x>
+     <y>247</y>
     </hint>
     <hint type="destinationlabel">
      <x>586</x>
@@ -604,11 +621,43 @@
    <hints>
     <hint type="sourcelabel">
      <x>309</x>
-     <y>260</y>
+     <y>294</y>
     </hint>
     <hint type="destinationlabel">
      <x>418</x>
      <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>connectButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>connectButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>83</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>116</x>
+     <y>331</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>enableSerialButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ZigbeeLaserRangeClass</receiver>
+   <slot>enableSerialButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>536</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>42</y>
     </hint>
    </hints>
   </connection>
@@ -617,7 +666,7 @@
   <slot>openPortButtonClicked()</slot>
   <slot>closePortButtonClicked()</slot>
   <slot>scanPortButtonClicked()</slot>
-  <slot>setConfigButtonClicked()</slot>
+  <slot>enableNetButtonClicked()</slot>
   <slot>getConfigButtonClicked()</slot>
   <slot>autoOneTimeButtonClicked()</slot>
   <slot>manualOneTimeButtonClicked()</slot>
@@ -628,5 +677,7 @@
   <slot>laserONClicked()</slot>
   <slot>laserOFFClicked()</slot>
   <slot>clearButtonClicked()</slot>
+  <slot>connectButtonClicked()</slot>
+  <slot>enableSerialButtonClicked()</slot>
  </slots>
 </ui>
